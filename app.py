@@ -3,7 +3,6 @@ import google.generativeai as genai
 import requests
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 import numpy as np
 
 # Configure Gemini API with placeholder key
