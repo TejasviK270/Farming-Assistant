@@ -24,7 +24,7 @@ if st.button("Get Advice"):
         st.warning("Please enter a farming question.")
     else:
         prompt = f"Location: {location}\nCrop Stage: {crop_stage}\nConstraints: {constraints}\nQuestion: {query}"
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        model = genai.GenerativeModel("gemini-1.5-pro")
         response = model.generate_content(prompt)
 
         # Display AI response
