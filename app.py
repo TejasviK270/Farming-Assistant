@@ -2,7 +2,7 @@ import streamlit as st
 import google.generativeai as genai
 
 # Configure Gemini API with your real key
-genai.configure(api_key="AIzaSyARQFbiSz_Dn6BWDElUZvEGGtaYy9NfOSE")
+genai.configure(api_key="AIzaSyDHvsFSKhv8gs8W0pER1ujeW2Uoe1fqP_s")
 
 st.title("🌱 Smart Farming Assistant")
 st.write("Get region-specific, multilingual farming advice powered by Gemini")
