@@ -2,7 +2,7 @@ import streamlit as st
 import google.generativeai as genai
 
 # Configure Gemini API with your real key
-genai.configure(api_key="AIzaSyDHvsFSKhv8gs8W0pER1ujeW2Uoe1fqP_s")
+genai.configure(api_key="geminiapi key here")
 
 st.title("🌱 Smart Farming Assistant")
 st.write("Get region-specific, multilingual farming advice powered by Gemini")
@@ -17,10 +17,23 @@ if st.button("Get Advice"):
     if query.strip():
         # ✅ Use a supported model
         model = genai.GenerativeModel("models/gemini-2.5-flash")
-        prompt = f"Location: {location}\nCrop Stage: {crop_stage}\nConstraints: {constraints}\nQuestion: {query}"
-        response = model.generate_content(prompt)
 
-        st.subheader("AI Farming Advice")
-        st.write(response.text)
+        # Add instruction for concise bullet points
+        prompt = (
+            f"Location: {location}\n"
+            f"Crop Stage: {crop_stage}\n"
+            f"Constraints: {constraints}\n"
+            f"Question: {query}\n\n"
+            "Please answer in 3-5 short bullet points, simple language for farmers."
+        )
+
+        response = model.generate_content(contents=prompt)
+
+        st.subheader("🌾 AI Farming Advice (Bullet Points)")
+        # Split response into lines and show as bullets
+        for line in response.text.split("\n"):
+            line = line.strip()
+            if line:
+                st.markdown(f"- {line}")
     else:
         st.warning("Please enter a farming question.")
