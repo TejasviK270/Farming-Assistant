@@ -29,7 +29,7 @@ if st.button("Get Advice"):
 
         response = model.generate_content(contents=prompt)
 
-        st.subheader("🌾 AI Farming Advice (Bullet Points)")
+        st.subheader("Farming Advice")
         # Split response into lines and show as bullets
         for line in response.text.split("\n"):
             line = line.strip()
